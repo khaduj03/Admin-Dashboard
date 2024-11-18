@@ -4,6 +4,7 @@ import OverViewPage from './pages/OverViewPage';
 import ProductsPage from './pages/ProductsPage';
 import Sidebar from './component/Sidebar';
 import './index.css';
+import { Users } from 'lucide-react';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Routes>
             <Route path="/" element={<OverViewPage />} />
             <Route path="/products" element={<ProductsPage />} />
+            <Route path="/users" element={<Users />} />
           </Routes>
         </div>
       </div>

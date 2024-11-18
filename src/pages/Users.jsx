@@ -1,12 +1,12 @@
 import React from 'react';
 import Header from '../component/common/Header';
-const ProductsPage = () => {
+const Users = () => {
   return (
     <div className='flex-1 overflow-auto relative z-10'>
-      <Header title="Products Page"/>
+      <Header title="Users Page"/>
     </div>
   );
 };
 
 
-export default ProductsPage;
+export default Users;
