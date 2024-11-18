@@ -1,11 +1,22 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import {AnimatePresence} from 'framer-motion'
 import { FaChartBar, FaShoppingBag, FaBars } from 'react-icons/fa'; // وارد کردن آیکن‌های صحیح
+import { Link } from 'react-router-dom'; // Use Link from 'react-router-dom'
+import { DollarSignIcon, Settings, ShoppingCart, TrendingUp } from 'lucide-react';
 
 const SIDEBAR_ITEMS = [
-  { name: "Overview", icon: FaChartBar, color: "#6366f1", path: "/" },
-  { name: "Products", icon: FaShoppingBag, color: "#EC4899", path: "/products" },
-  { name: "Reports", icon: FaChartBar, color: "#6366f1", path: "/reports" },
+  { name: "Overview", icon: FaChartBar, color: "#6366f1", href: "/" },
+  { name: "Products", icon: FaShoppingBag, color: "#8B5CF6 ", href: "/products" },
+  { name: "Users", icon: FaChartBar, color: "#EC4899", href: "/users" },
+  { name: "Sales", icon: DollarSignIcon, color: "#10B981", href: "/sales" },
+  { name: "Orders", icon: ShoppingCart, color: "#F59E0B", href: "/orders" },
+  { name: "Analytics", icon: TrendingUp, color: "#3B82F6", href: "/analytics" },
+  { name: "Settings", icon: Settings, color: "#6EE7B7", href: "/settings" },
+
+
+
+
   // سایر آیتم‌ها
 ];
 
@@ -26,6 +37,32 @@ const Sidebar = () => {
         >
           <FaBars size={24} />
         </motion.button>
+        <nav className='mt-8 flex-grow'>
+          {SIDEBAR_ITEMS.map((item, index) => (
+            <Link key={item.href} to={item.href}>
+              <motion.div
+                className='flex items-center p-4 text-sm font-medium rounded-lg hover:bg-gray-700 transition-colors mb-2'
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <item.icon size={20} style={{ color: item.color, minWidth: '20px' }} />
+                <AnimatePresence>
+                  {isSidebarOpen &&(
+                    <motion.span
+                    className='ml-4 whitespace-nowrap'
+                    initial={{opacity:0, width:0 }}
+                    animate={{opacity:1 ,width:"auto"}}
+                    exit={{opacity:0, width:0 }}
+                    transition={{duration:0.2, delay:0.3}}
+                    >
+                      {item.name}
+                    </motion.span>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            </Link>
+          ))}
+        </nav>
       </div>
     </motion.div>
   );
