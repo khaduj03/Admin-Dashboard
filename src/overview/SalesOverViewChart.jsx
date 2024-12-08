@@ -27,7 +27,6 @@ import {
     {name: "Dec", sales: 7500}
   ];
 
-  import React from 'react'
   
   const SalesOverViewChart = () => {
     return (

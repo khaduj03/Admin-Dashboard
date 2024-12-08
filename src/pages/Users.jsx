@@ -1,4 +1,4 @@
-import React from 'react';
+
 import Header from '../component/common/Header';
 const Users = () => {
   return (
