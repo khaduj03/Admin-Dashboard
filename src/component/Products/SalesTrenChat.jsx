@@ -56,8 +56,8 @@ const TopicTrendChart = () => {
                             dataKey="topic"
                             stroke="#6366F1"
                             strokeWidth={3}
-                            dot={{ fill:  "#E5E7Eb", strokeWidth: 2, r: 3 }}
-                            activeDot={{ r: 3, strokeWidth: 2 }}
+                            dot={{ fill:  "#E5E7Eb", strokeWidth: 2, r: 2 }}
+                            activeDot={{ r: 2, strokeWidth: 2 }}
                         />
                     </LineChart>
                 </ResponsiveContainer>
